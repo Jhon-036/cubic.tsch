@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react"
+import { API_URL } from "../../utils/ConfigApi";
 
 const UpdatePostForm = ({ post, handleCloseForm, fetchPosts, filter }) => {
   const fileInputRef = useRef(null)
@@ -68,7 +69,7 @@ const UpdatePostForm = ({ post, handleCloseForm, fetchPosts, filter }) => {
     }
 
     try {
-      const res = await fetch(`http://localhost:3000/api/v1/posts/${id}`, {
+      const res = await fetch(`${API_URL}posts/${id}`, {
         method: 'PUT',
         body: dataToSend
       })
@@ -94,7 +95,7 @@ const UpdatePostForm = ({ post, handleCloseForm, fetchPosts, filter }) => {
   return (
     <section className={`w-full h-screen fixed top-0 left-0 bg-[#00000080] backdrop-blur-[2px]`}>
       <div className="flex justify-center items-center h-screen">
-        <form onSubmit={handleForm} className="bg-[#191D23] w-2/6 flex flex-col gap-2 p-8 rounded">
+        <form onSubmit={handleForm} className="bg-[#191D23] w-[600px] mx-8 flex flex-col gap-2 p-8 rounded">
           <h2 className="text-xl text-center">Actualizar publicación</h2>
           <div className="pt-4 flex flex-col gap-2">
             <label

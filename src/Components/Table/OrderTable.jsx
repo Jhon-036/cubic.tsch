@@ -18,6 +18,7 @@ const OrderTable = ({orders}) => {
           <th className="p-4 text-start">Nro.</th>
           <th className="p-4 text-start">Fecha</th>
           <th className="p-4 text-start">Cliente</th>
+          <th className="p-4 text-start">Correo</th>
           <th className="p-4 text-start">Producto</th>
           <th className="p-4 text-start">Ip</th>
         </tr>
@@ -25,10 +26,11 @@ const OrderTable = ({orders}) => {
       <tbody>
         {
           orders.map(order => (
-            <tr>
+            <tr key={order.id} >
               <td className="border-b-2 p-4 border-[#262C36]">#{order.number}</td>
               <td className="border-b-2 p-4 border-[#262C36]">{formatDateTime(order.createdAt)}</td>
               <td className="border-b-2 p-4 border-[#262C36]">{order.name} {order.lastname}</td>
+              <td className="border-b-2 p-4 border-[#262C36]">{order.email}</td>
               <td className="border-b-2 p-4 border-[#262C36]">{order.item}</td>
               <td className="border-b-2 p-4 border-[#262C36]">{order.ip}</td>
             </tr>

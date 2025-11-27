@@ -31,7 +31,7 @@ const PostsList = ({search, fetchPosts, posts, loading, filter}) => {
 
   return (
     <div>
-      <div className="grid grid-cols-2 gap-8">
+      <div className="grid grid-cols-2 gap-8 max-[1100px]:grid-cols-1">
         {
           filteredPosts.reverse().map((post) => (
             <PostCard key={post.id} post={post} fetchPosts={fetchPosts} filter={filter} />

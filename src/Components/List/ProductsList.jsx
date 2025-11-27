@@ -37,7 +37,7 @@ const ProductsList = ({ search, fetchProducts, loading, products, categories }) 
 
   return (
     <div>
-      <div className="grid grid-cols-2 gap-8">
+      <div className="grid grid-cols-2 gap-8 max-[1100px]:grid-cols-1">
         {
           filteredProduct.reverse().slice(0, currentListProduct).map((product) => (
             <ProductCard key={product.id} product={product} fetchProducts={fetchProducts} category={categories} />

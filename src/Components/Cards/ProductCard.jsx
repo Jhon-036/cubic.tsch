@@ -1,6 +1,7 @@
 import { SquarePen, Trash2 } from "lucide-react"
 import { useState } from "react"
 import UpdateProductForm from "../Forms/UpdateProductForm"
+import { API_URL } from "../../utils/ConfigApi"
 
 const ProductCard = ({product, fetchProducts, category}) => {
   const [openModal, setOpenModal] = useState(false)
@@ -12,7 +13,7 @@ const ProductCard = ({product, fetchProducts, category}) => {
   const handleDeleteProduct = async (id) => {
     if (window.confirm('¿Eliminar ' + product.name + '?')) {
       try {
-        const res = await fetch(`http://localhost:3000/api/v1/products/${id}`, {
+        const res = await fetch(`${API_URL}products/${id}`, {
           method: 'DELETE'
         })
 

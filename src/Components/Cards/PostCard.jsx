@@ -2,6 +2,7 @@ import { SquarePen, Trash2 } from "lucide-react"
 import { useState } from "react"
 import { getRelativeTime } from "../hooks/getRelativeTime.js"
 import UpdatePostForm from "../Forms/UpdatePostForm.jsx"
+import { API_URL } from "../../utils/ConfigApi.js"
 
 const PostCard = ({post, fetchPosts, filter}) => {
   const [openModal, setOpenModal] = useState(false)
@@ -18,7 +19,7 @@ const PostCard = ({post, fetchPosts, filter}) => {
   const handleDeletePost = async (id) => {
     if (window.confirm('¿Eliminar ' + post.title + '?')) {
       try {
-        const res = await fetch(`http://localhost:3000/api/v1/posts/${id}`, {
+        const res = await fetch(`${API_URL}posts/${id}`, {
           method: 'DELETE'
         })
 
@@ -39,7 +40,7 @@ const PostCard = ({post, fetchPosts, filter}) => {
 
   return (
     <div className="bg-[#191D23] rounded p-4">
-      <div className="flex gap-4">
+      <div className="flex gap-4 flex-wrap">
         <img 
           src={post.image} 
           alt={`${post.title} | tschperu.com`} 
