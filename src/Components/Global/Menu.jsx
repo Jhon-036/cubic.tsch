@@ -112,10 +112,11 @@ const Menu = () => {
         {/* Panel del Menú */}
         <section
           className={`
-      fixed top-0 right-0 h-full w-3/4 sm:w-1/2 bg-[#282b31] 
-      transition-transform duration-300 ease-in-out
-      ${showMenu ? "translate-x-0" : "translate-x-full"}
-    `}
+    fixed top-0 right-0 h-full w-3/4 sm:w-1/2 bg-[#282b31]
+    flex flex-col
+    transition-transform duration-300 ease-in-out
+    ${showMenu ? "translate-x-0" : "translate-x-full"}
+  `}
         >
           <ul>
             <li onClick={handleNoMenu} className="block hover:bg-[#262C36] cursor-pointer">
@@ -123,7 +124,7 @@ const Menu = () => {
                 to="/dashboard"
                 className={({ isActive }) =>
                   `flex py-4 px-10 items-center gap-2 transition
-            ${isActive ? "bg-[#262C36] text-white" : ""}`
+          ${isActive ? "bg-[#262C36] text-white" : ""}`
                 }
               >
                 {({ isActive }) => (
@@ -140,7 +141,7 @@ const Menu = () => {
                 to="/productos"
                 className={({ isActive }) =>
                   `flex py-4 px-10 items-center gap-2 transition
-            ${isActive ? "bg-[#262C36] text-white" : ""}`
+          ${isActive ? "bg-[#262C36] text-white" : ""}`
                 }
               >
                 {({ isActive }) => (
@@ -157,7 +158,7 @@ const Menu = () => {
                 to="/publicaciones"
                 className={({ isActive }) =>
                   `flex py-4 px-10 items-center gap-2 transition
-            ${isActive ? "bg-[#262C36] text-white" : ""}`
+          ${isActive ? "bg-[#262C36] text-white" : ""}`
                 }
               >
                 {({ isActive }) => (
@@ -169,7 +170,19 @@ const Menu = () => {
               </NavLink>
             </li>
           </ul>
+
+          {/* 👇 Esto ahora se va al fondo siempre */}
+          <section className="hover:bg-[#262C36] cursor-pointer py-8 px-10 mt-auto">
+            <button
+              className="flex items-center gap-2 cursor-pointer"
+              onClick={handleLogOut}
+            >
+              <LogOut strokeWidth={1.2} size={20} />
+              <p>Cerrar sesión</p>
+            </button>
+          </section>
         </section>
+
       </section>
 
     </>
