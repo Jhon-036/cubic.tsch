@@ -33,17 +33,17 @@ const LoginForm = () => {
         },
         body: JSON.stringify(dataForm)
       })
+      const data = await res.json()
 
       if (!res.ok) {
-        alert('Ocurrio un error')
+        alert(data.message || data.error || 'Credenciales inválidas')
+        return
       }
 
-      const data = await res.json()
-      alert(data.mensaje || data.error)
-
+      localStorage.setItem('token', data.token)
+      alert(data.mensaje || 'Ingresado correctamente')
       window.location.href = '/dashboard'
 
-      localStorage.setItem('token', data.token)
     } catch (err) {
       alert('Ocurrio un error')
       console.log(err)
