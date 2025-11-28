@@ -1,1 +1,1 @@
-export const API_URL = 'http://localhost:3000/api/v1/'
+export const API_URL = 'http://3.239.82.17:3000/api/v1/'
