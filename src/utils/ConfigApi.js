@@ -1,1 +1,1 @@
-export const API_URL = 'http://backend-cubic-tsch.vercel.app/api/v1/'
+export const API_URL = 'https://backend-cubic-tsch.vercel.app/api/v1/'
