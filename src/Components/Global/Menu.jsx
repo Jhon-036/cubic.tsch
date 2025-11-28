@@ -119,7 +119,7 @@ const Menu = () => {
   `}
         >
           <ul>
-            <li onClick={handleNoMenu} className="block hover:bg-[#262C36] cursor-pointer">
+            <li onClick={handleNoMenu} className="block hover:bg-[#262C36] pt-8 cursor-pointer">
               <NavLink
                 to="/dashboard"
                 className={({ isActive }) =>
