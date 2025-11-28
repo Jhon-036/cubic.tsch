@@ -40,7 +40,7 @@ const PostCard = ({post, fetchPosts, filter}) => {
 
   return (
     <div className="bg-[#191D23] rounded p-4">
-      <div className="flex gap-4 flex-wrap">
+      <div className="flex gap-4 max-xl:flex-wrap">
         <img 
           src={post.image} 
           alt={`${post.title} | tschperu.com`} 
