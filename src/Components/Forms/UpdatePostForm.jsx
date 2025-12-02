@@ -152,7 +152,7 @@ const UpdatePostForm = ({ post, handleCloseForm, fetchPosts, filter }) => {
             <label
               htmlFor="description">Resumen :</label>
             <textarea
-              rows={4}
+              rows={6}
               id="resume"
               name="resume"
               value={formData.resume}

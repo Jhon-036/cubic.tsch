@@ -147,7 +147,7 @@ const NewProductForm = ({ className, handleCloseForm, fetchProducts, category })
             <label
               htmlFor="description">Descripción :</label>
             <textarea
-              rows={4}
+              rows={6}
               id="description"
               name="description"
               value={formData.description}

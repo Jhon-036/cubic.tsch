@@ -8,6 +8,7 @@ const UpdateProductForm = ({ className, handleCloseForm, product, fetchProducts,
     category: '',
     newCategory: '',
     partno: '',
+    descriptionShort: '',
     description: '',
     image: null,
     imageUrl: ''
@@ -21,6 +22,7 @@ const UpdateProductForm = ({ className, handleCloseForm, product, fetchProducts,
         category: product.category || "",
         newCategory: "",
         partno: product.partno || "",
+        descriptionShort: product.descriptionShort || "",
         description: product.description || "",
         image: null,
         imageUrl: product.image || ""
@@ -64,6 +66,7 @@ const UpdateProductForm = ({ className, handleCloseForm, product, fetchProducts,
     dataToSend.append('name', formData.name)
     dataToSend.append('category', categoryToSend)
     dataToSend.append("partno", formData.partno)
+    dataToSend.append("descriptionShort", formData.descriptionShort)
     dataToSend.append("description", formData.description)
 
     if (formData.image) {
@@ -129,7 +132,7 @@ const UpdateProductForm = ({ className, handleCloseForm, product, fetchProducts,
           <div className="grid grid-cols-2 gap-4">
             {/* Cbo de categorias */}
             <div className=" flex flex-col gap-2">
-              <label>Categoria: </label>
+              <label>Categoria : </label>
               <select
                 id="category"
                 name="category"
@@ -163,9 +166,22 @@ const UpdateProductForm = ({ className, handleCloseForm, product, fetchProducts,
 
           <div className=" flex flex-col gap-2">
             <label
-              htmlFor="description">Descripción :</label>
+              htmlFor="descriptionShort">Descripción corta (Catálogos):</label>
             <textarea
-              rows={4}
+              rows={6}
+              id="descriptionShort"
+              name="descriptionShort"
+              value={formData.descriptionShort}
+              onChange={handleChange}
+              className="border border-[#262C36] rounded outline-0 text-sm px-2 py-1 resize-none">
+
+            </textarea>
+          </div>
+          <div className=" flex flex-col gap-2">
+            <label
+              htmlFor="description">Descripción larga (Detalles) :</label>
+            <textarea
+              rows={6}
               id="description"
               name="description"
               value={formData.description}

@@ -44,16 +44,25 @@ const ProductCard = ({product, fetchProducts, category}) => {
         <img 
           src={product.image} 
           alt={product.name} 
-          className="w-42 rounded"
+          className="w-42 rounded place-self-start"
         />
-        <div className="flex flex-col justify-between">
+        <div className="flex flex-col justify-between w-full">
           <div>
             <p>{product.name}</p>
             <span className="text-xs text-[#47A785] bg-[#47a7853b] py-px px-[5px] rounded">{product.category}</span>
             <span className="block text-sm text-gray-400">Part. No. : {product.partno}</span>
-            <p className="pt-1">{product.description}</p>
+            <div className="flex flex-col gap-2">
+              <div className="bg-[#292e3585] rounded w-full p-2">
+                <span>Description corta:</span>
+                <p className="pt-1 text-gray-300">{product.descriptionShort}</p>
+              </div>
+              <div className="bg-[#292e3585] rounded w-full p-2">
+                <span>Description detallada:</span>
+                <p className="pt-1 text-gray-300">{product.description}</p>
+              </div>
+            </div>
           </div>
-          <div className="flex items-center  gap-2">
+          <div className="flex items-center pt-2 gap-2">
             <button onClick={handleShowUpdateForm} className="bg-[#262C36] hover:bg-[#2d323b] transition p-2 rounded cursor-pointer"><SquarePen strokeWidth={1.5} size={20}  color="#5395CF" /></button>
             <button onClick={() => handleDeleteProduct(product.id)} className="bg-[#262C36] hover:bg-[#2d323b] transition p-2 rounded cursor-pointer"><Trash2 strokeWidth={1.5} size={20} color="#e05757" /></button>
           </div>
