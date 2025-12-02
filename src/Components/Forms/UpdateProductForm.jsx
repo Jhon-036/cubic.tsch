@@ -169,6 +169,7 @@ const UpdateProductForm = ({ className, handleCloseForm, product, fetchProducts,
               htmlFor="descriptionShort">Descripción corta (Catálogos):</label>
             <textarea
               rows={6}
+              maxLength={110}
               id="descriptionShort"
               name="descriptionShort"
               value={formData.descriptionShort}
