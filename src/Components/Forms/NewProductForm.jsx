@@ -12,6 +12,7 @@ const NewProductForm = ({ className, handleCloseForm, fetchProducts, category })
     image: null,
     imageUrl: ''
   })
+  const token = localStorage.getItem('token')
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -53,6 +54,9 @@ const NewProductForm = ({ className, handleCloseForm, fetchProducts, category })
     try {
       const res = await fetch(`${API_URL}products`, {
         method: 'POST',
+        headers: {
+          "Authorization": `Bearer ${token}`
+        },
         body: dataToSend
       })
 
@@ -78,7 +82,7 @@ const NewProductForm = ({ className, handleCloseForm, fetchProducts, category })
                         `}>
       <div className="flex justify-center items-center h-screen">
         <form onSubmit={handleForm} className="bg-[#191D23] w-[600px] mx-8 flex flex-col gap-2 p-8 rounded">
-          <h2 className="text-xl text-center">Actualizar producto</h2>
+          <h2 className="text-xl text-center">Crear producto</h2>
           <div className="pt-4 flex flex-col gap-2">
             <label
               htmlFor="name">Nombre :</label>

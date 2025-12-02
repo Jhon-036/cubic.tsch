@@ -12,6 +12,7 @@ const NewPostForm = ({ handleCloseForm, fetchPosts, filter }) => {
     image: null,
     imageUrl: ''
   })
+  const token =  localStorage.getItem('token')
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -51,6 +52,9 @@ const NewPostForm = ({ handleCloseForm, fetchPosts, filter }) => {
     try {
       const res = await fetch(`${API_URL}posts`, {
         method: 'POST',
+        headers: {
+          "Authorization": `Bearer ${token}`
+        },
         body: dataToSend
       })
 

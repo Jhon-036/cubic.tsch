@@ -10,11 +10,16 @@ const ProductCard = ({product, fetchProducts, category}) => {
     setOpenModal(prev => !prev)
   }
 
+  const token = localStorage.getItem('token')
+
   const handleDeleteProduct = async (id) => {
     if (window.confirm('¿Eliminar ' + product.name + '?')) {
       try {
         const res = await fetch(`${API_URL}products/${id}`, {
-          method: 'DELETE'
+          method: 'DELETE',
+          headers: {
+          "Authorization": `Bearer ${token}`
+          }
         })
 
         if (!res.ok) {

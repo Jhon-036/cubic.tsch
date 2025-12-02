@@ -7,6 +7,7 @@ import { API_URL } from "../../utils/ConfigApi.js"
 const PostCard = ({post, fetchPosts, filter}) => {
   const [openModal, setOpenModal] = useState(false)
   const [openContentFull, setOpenContentFull] = useState(false)
+  const token = localStorage.getItem('token')
 
   const handleShowUpdateForm = () => {
     setOpenModal(prev => !prev)
@@ -20,7 +21,10 @@ const PostCard = ({post, fetchPosts, filter}) => {
     if (window.confirm('¿Eliminar ' + post.title + '?')) {
       try {
         const res = await fetch(`${API_URL}posts/${id}`, {
-          method: 'DELETE'
+          method: 'DELETE',
+          headers: {
+          "Authorization": `Bearer ${token}`
+          }
         })
 
         if (!res.ok) {

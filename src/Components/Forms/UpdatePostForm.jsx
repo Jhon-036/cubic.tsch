@@ -12,6 +12,7 @@ const UpdatePostForm = ({ post, handleCloseForm, fetchPosts, filter }) => {
     image: null,
     imageUrl: ''
   })
+  const token = localStorage.getItem('token')
 
   useEffect(() => {
     if (post) {
@@ -71,6 +72,9 @@ const UpdatePostForm = ({ post, handleCloseForm, fetchPosts, filter }) => {
     try {
       const res = await fetch(`${API_URL}posts/${id}`, {
         method: 'PUT',
+        headers: {
+          "Authorization": `Bearer ${token}`
+        },
         body: dataToSend
       })
 

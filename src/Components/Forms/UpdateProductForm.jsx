@@ -12,6 +12,7 @@ const UpdateProductForm = ({ className, handleCloseForm, product, fetchProducts,
     image: null,
     imageUrl: ''
   })
+  const token = localStorage.getItem('token')
 
   useEffect(() => {
     if (product) {
@@ -72,6 +73,9 @@ const UpdateProductForm = ({ className, handleCloseForm, product, fetchProducts,
     try {
       const res = await fetch(`${API_URL}products/${id}`, {
         method: 'PUT',
+        headers: {
+          "Authorization": `Bearer ${token}`
+        },
         body: dataToSend
       })
 
