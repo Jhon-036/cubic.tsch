@@ -104,29 +104,31 @@ const UpdateProductForm = ({ className, handleCloseForm, product, fetchProducts,
       <div className="flex justify-center items-center h-screen">
         <form onSubmit={handleForm} className="bg-[#191D23] w-[600px] mx-8 flex flex-col gap-2 p-8 rounded">
           <h2 className="text-xl text-center">Actualizar producto</h2>
-          <div className="pt-4 flex flex-col gap-2">
-            <label
-              htmlFor="name">Nombre :</label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              className="border border-[#262C36] rounded outline-0 text-sm px-2 py-1"
-            />
-          </div>
-          <div className=" flex flex-col gap-2">
-            <label
-              htmlFor="partno">Part. No. :</label>
-            <input
-              type="text"
-              id="partno"
-              name="partno"
-              value={formData.partno}
-              onChange={handleChange}
-              className="border border-[#262C36] rounded outline-0 text-sm px-2 py-1"
-            />
+          <div className="pt-4 grid grid-cols-2">
+            <div className=" flex flex-col gap-2">
+              <label
+                htmlFor="name">Nombre :</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                className="border border-[#262C36] rounded outline-0 text-sm px-2 py-1"
+              />
+            </div>
+            <div className=" flex flex-col gap-2">
+              <label
+                htmlFor="partno">Part. No. :</label>
+              <input
+                type="text"
+                id="partno"
+                name="partno"
+                value={formData.partno}
+                onChange={handleChange}
+                className="border border-[#262C36] rounded outline-0 text-sm px-2 py-1"
+              />
+            </div>
           </div>
 
           <div className="grid grid-cols-2 gap-4">
