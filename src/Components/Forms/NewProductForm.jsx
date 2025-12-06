@@ -8,6 +8,7 @@ const NewProductForm = ({ className, handleCloseForm, fetchProducts, category })
     category: '',
     newCategory: '',
     partno: '',
+    descriptionShort: '',
     description: '',
     image: null,
     imageUrl: ''
@@ -45,6 +46,7 @@ const NewProductForm = ({ className, handleCloseForm, fetchProducts, category })
     dataToSend.append('name', formData.name)
     dataToSend.append('category', categoryToSend)
     dataToSend.append("partno", formData.partno)
+    dataToSend.append("descriptionShort", formData.descriptionShort)
     dataToSend.append("description", formData.description)
 
     if (formData.image) {
@@ -83,29 +85,31 @@ const NewProductForm = ({ className, handleCloseForm, fetchProducts, category })
       <div className="flex justify-center items-center h-screen">
         <form onSubmit={handleForm} className="bg-[#191D23] w-[600px] mx-8 flex flex-col gap-2 p-8 rounded">
           <h2 className="text-xl text-center">Crear producto</h2>
-          <div className="pt-4 flex flex-col gap-2">
-            <label
-              htmlFor="name">Nombre :</label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              className="border border-[#262C36] rounded outline-0 text-sm px-2 py-1"
-            />
-          </div>
-          <div className=" flex flex-col gap-2">
-            <label
-              htmlFor="partno">Part. No. :</label>
-            <input
-              type="text"
-              id="partno"
-              name="partno"
-              value={formData.partno}
-              onChange={handleChange}
-              className="border border-[#262C36] rounded outline-0 text-sm px-2 py-1"
-            />
+          <div className="pt-4 grid grid-cols-2 gap-4 ">
+            <div className=" flex flex-col gap-2">
+              <label
+                htmlFor="name">Nombre :</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                className="border border-[#262C36] rounded outline-0 text-sm px-2 py-1"
+              />
+            </div>
+            <div className=" flex flex-col gap-2">
+              <label
+                htmlFor="partno">Part. No. :</label>
+              <input
+                type="text"
+                id="partno"
+                name="partno"
+                value={formData.partno}
+                onChange={handleChange}
+                className="border border-[#262C36] rounded outline-0 text-sm px-2 py-1"
+              />
+            </div>
           </div>
 
           <div className="grid grid-cols-2 gap-4">
@@ -145,7 +149,21 @@ const NewProductForm = ({ className, handleCloseForm, fetchProducts, category })
 
           <div className=" flex flex-col gap-2">
             <label
-              htmlFor="description">Descripción :</label>
+              htmlFor="descriptionShort">Descripción corta (Catálogos):</label>
+            <textarea
+              rows={4}
+              maxLength={110}
+              id="descriptionShort"
+              name="descriptionShort"
+              value={formData.descriptionShort}
+              onChange={handleChange}
+              className="border border-[#262C36] rounded outline-0 text-sm px-2 py-1 resize-none">
+
+            </textarea>
+          </div>
+          <div className=" flex flex-col gap-2">
+            <label
+              htmlFor="description">Descripción larga (Detalles) :</label>
             <textarea
               rows={6}
               id="description"
